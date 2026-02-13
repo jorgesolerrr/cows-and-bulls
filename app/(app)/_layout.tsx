@@ -1,18 +1,41 @@
 import { Tabs } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { View, Text } from "react-native";
+import { BottomTabBar } from "@react-navigation/bottom-tabs";
 
 export default function AppLayout() {
   const insets = useSafeAreaInsets();
 
   return (
     <Tabs
+      tabBar={(props) => (
+        <View
+          style={{
+            backgroundColor: "#17161d",
+            borderTopColor: "#2f2c3a",
+            borderTopWidth: 1,
+          }}
+        >
+          <Text
+            style={{
+              color: "#5e5973",
+              fontSize: 11,
+              textAlign: "center",
+              paddingTop: 6,
+            }}
+          >
+            Made with love for Gaby 🤍
+          </Text>
+          <BottomTabBar {...props} />
+        </View>
+      )}
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
           backgroundColor: "#17161d",
-          borderTopColor: "#2f2c3a",
-          borderTopWidth: 1,
+          borderTopColor: "transparent",
+          borderTopWidth: 0,
           paddingBottom: 12 + insets.bottom,
           paddingTop: 8,
           height: 72 + insets.bottom,
