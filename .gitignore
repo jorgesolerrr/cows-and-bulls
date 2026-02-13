@@ -37,5 +37,8 @@ npm-debug.log*
 .vscode/
 .idea/
 
+# Google Play Service Account (secret - never commit)
+google-service-account.json
+
 # Testing
 coverage/
