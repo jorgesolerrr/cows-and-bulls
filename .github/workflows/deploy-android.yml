@@ -50,7 +50,9 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Publish OTA update
-        run: eas update --channel preview --message "${{ github.event.head_commit.message }}" --non-interactive
+        env:
+          CI: 1
+        run: eas update --channel preview --message "${{ github.event.head_commit.message }}"
 
   # Job 3: Build de produccion + submit en tags (Etapa 2)
   production-release:
